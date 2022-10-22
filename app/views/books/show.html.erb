@@ -1,0 +1,9 @@
+<p>Book detail</p>
+<div>
+  <%= @book.title %>
+  <%= @book.opinion %>
+  <% if @book.user == current_user %>
+    <%= link_to "Edit", edit_book_path %>
+    <%= link_to "Destroy", books_path, method: :delete %>
+  <% end %>
+</div>
