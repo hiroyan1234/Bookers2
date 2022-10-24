@@ -1,24 +1,30 @@
-<div class="container">
-  <%= render 'users/list', user:@user, book:@book %>
-  <h1>Books </h1>
-  <table>
-    <thead>
-      <tr>
-        <th></th>
-        <th>Title</th>
-        <th>Opinion</th>
-      </tr>
-    </thead>
+<p id="notice"></p>
+<div class="container px-5 px-sm-0">
+  <div class="row">
+    <%= render 'users/list', user:@user, book:@book %>
     
-    <tbody>
-      <% @books.each do |book| %>
-        <tr>
-          <td><%= image_tag book.user.get_profile_image(100,100) %></td>
-          <td><%= book.title %></td>
-          <td><%= book.opinion %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+    <div class="col-lg-8 offset-md-1">
+      <h3>Books</h3>
+      <table class="table">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Title</th>
+            <th>Opinion</th>
+          </tr>
+        </thead>
+        
+        <tbody>
+          <% @books.each do |book| %>
+            <tr>
+              <td><%= image_tag book.user.get_profile_image(100,100) %></td>
+              <td><%= book.title %></td>
+              <td><%= book.opinion %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </div>
 
