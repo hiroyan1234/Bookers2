@@ -1,4 +1,10 @@
-<p>Book detail</p>
+
+<p id="notice"></p>
+<div class="container px-5 px-sm-0">
+  <div class="row">
+    <%= render 'list', user:
+  </div>
+  <p>Book detail</p>
 <div>
   <%= @book.title %>
   <%= @book.opinion %>
@@ -6,4 +12,5 @@
     <%= link_to "Edit", edit_book_path %>
     <%= link_to "Destroy", books_path, method: :delete %>
   <% end %>
+</div>
 </div>
