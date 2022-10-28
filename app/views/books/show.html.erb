@@ -1,16 +1,29 @@
-
 <p id="notice"></p>
 <div class="container px-5 px-sm-0">
   <div class="row">
-    <%= render 'list', user:
+    <%= render 'users/list', user:@user, book:@bookn %>
+
+    <div class="col-md-8 offset-md-1">
+      <h2>Book detail</h2>
+      <table class="table">
+        <tbody>
+          <tr>
+            <td>
+              <%= link_to user_path(@book.id) do %>
+                <%= image_tag @user.get_profile_image(100,100) %>
+                <br><%= @user.name %>
+              <% end %>
+            </td>
+            <td><%= @book.title %></td>
+            <td><%= @book.opinion %></td>
+            
+              <% if @book.user == current_user %>
+            <td><%= link_to "Edit", edit_book_path, class: "btn btn-sm btn-success" %></td>
+            <td><%= link_to "Destroy", books_path, method: :delete, class: "btn btn-sm btn-danger", "data-confirm" => "本当に消しますか？" %></td>
+              <% end %>
+          </tr>
+        </tbody>
+      </table>
+    <div>
   </div>
-  <p>Book detail</p>
-<div>
-  <%= @book.title %>
-  <%= @book.opinion %>
-  <% if @book.user == current_user %>
-    <%= link_to "Edit", edit_book_path %>
-    <%= link_to "Destroy", books_path, method: :delete %>
-  <% end %>
-</div>
 </div>
